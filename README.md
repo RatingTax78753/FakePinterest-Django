@@ -18,7 +18,7 @@ FakePinterest é um site inspirado no Pinterest, mas de forma bem mais básica. 
 - Gerenciar perfil de usuário, incluindo foto de perfil.
 - Navegação intuitiva com barra de navegação responsiva.
 
-```markdown
+
 ## Visão Geral:
 
 ### 1. Homepage:
@@ -53,7 +53,6 @@ FakePinterest é um site inspirado no Pinterest, mas de forma bem mais básica. 
 - Alterar foto de perfil.
 - Fazer login.
 - Criar novo post.
-```
 
 
 ## Requisitos:
