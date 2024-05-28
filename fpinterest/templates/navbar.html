@@ -10,86 +10,83 @@
         <a class="link-nav" href="{% url 'fpinterest:explorar' %}">Explorar</a>
     </div>
 
-    {% if user.is_authenticated %}
+    <div class="admin-dropdown flex">
+        {% if request.user.is_superuser %}
+            <a class="botao" href="{% url 'admin:index' %}">Admin</a>
+        {% endif %}
 
-        <ul class="dropdown">
-            <li class="trigger-dropdown flex" id="triggerDropdown">
-                <div class="foto-perfil-trigger">
-                    {% if request.user.perfil.foto_perfil %}
-                        <img src="{{ request.user.perfil.foto_perfil.url }}" alt="Foto de perfil: {{ perfil.usuario.username }}">
-                    {% else %}
-                        <img src="{% static 'images/default.jpg' %}" alt="Foto de perfil default">
-                    {% endif %}
-                </div>
-                <p>&#11206;</p>
-            </li>
-
-            <li class="lista-dropdown" id="listDropdown">
-                <ul class="itens-dropdown flex col">
-                    <li class="perfil">
-                        <p class="divisoria">Perfil:</p>
-
-                        <div class="div-perfil flex">
-                            <a href="{% url 'fpinterest:perfil' request.user.id %}">
-                                <div class="foto-perfil">
-                                    {% if request.user.perfil.foto_perfil %}
-                                        <img src="{{ request.user.perfil.foto_perfil.url }}" alt="Foto de perfil: {{ perfil.usuario.username }}">
+        {% if request.user.is_authenticated %}
+            <ul class="dropdown">
+                <li class="trigger-dropdown flex" id="triggerDropdown">
+                    <div class="foto-perfil-trigger">
+                        {% if request.user.perfil.foto_perfil %}
+                            <img src="{{ request.user.perfil.foto_perfil.url }}" alt="Foto de perfil: {{ perfil.usuario.username }}">
+                        {% else %}
+                            <img src="{% static 'images/default.jpg' %}" alt="Foto de perfil default">
+                        {% endif %}
+                    </div>
+                    <p>&#11206;</p>
+                </li>
+                <li class="lista-dropdown" id="listDropdown">
+                    <ul class="itens-dropdown flex col">
+                        <li class="perfil">
+                            <p class="divisoria">Perfil:</p>
+                            <div class="div-perfil flex">
+                                <a href="{% url 'fpinterest:perfil' request.user.id %}">
+                                    <div class="foto-perfil">
+                                        {% if request.user.perfil.foto_perfil %}
+                                            <img src="{{ request.user.perfil.foto_perfil.url }}" alt="Foto de perfil: {{ perfil.usuario.username }}">
+                                        {% else %}
+                                            <img src="{% static 'images/default.jpg' %}" alt="Foto de perfil default">
+                                        {% endif %}
+                                    </div>
+                                </a>
+        
+                                <div class="infos-perfil flex col">
+                                    <div class="div-username-editar flex">
+                                        <p class="username">{{ request.user.username }}</p>
+                                        <a href="{% url 'fpinterest:editarperfil' request.user.id %}">
+                                            <img src="{% static 'images/edit-perfil.svg' %}" alt="Icone de editar perfil">
+                                        </a>
+                                    </div>
+                                    <p>
+                                        {% if request.user.email|length > 22 %}
+                                            {{ request.user.email|slice:":22" }}...
+                                        {% else %}
+                                            {{ request.user.email }}
+                                        {% endif %}
+                                    </p>
+                                    {% if perfil.usuario.posts.all|length != 1 %}
+                                        <p>{{ request.user.posts.all|length }} posts</p>
                                     {% else %}
-                                        <img src="{% static 'images/default.jpg' %}" alt="Foto de perfil default">
+                                        <p>{{ request.user.posts.all|length }} post</p>
                                     {% endif %}
                                 </div>
-                            </a>
-                            
-                            <div class="infos-perfil flex col">
-                                <div class="div-username-editar flex">
-                                    <p class="username">{{ request.user.username }}</p>
-
-                                    <a href="{% url 'fpinterest:editarperfil' request.user.id %}">
-                                        <img src="{% static 'images/edit-perfil.svg' %}" alt="Icone de editar perfil">
-                                    </a>
-                                </div>
-
-                                <p>
-                                    {% if request.user.email|length > 22 %}
-                                        {{ request.user.email|slice:":22" }}...
-                                    {% else %}
-                                        {{ request.user.email }}
-                                    {% endif %}
-                                </p>
-
-                                {% if perfil.usuario.posts.all|length != 1 %}
-                                    <p>{{ request.user.posts.all|length }} posts</p>
-                                {% else %}
-                                    <p>{{ request.user.posts.all|length }} post</p>
-                                {% endif %}
                             </div>
-                        </div>
-                    </li>
-
-                    <a class="item-dropdown" href="{% url 'fpinterest:criarpost' %}" >
-                        <li>Criar Post</li>
-                    </a>
-
-                    <li class="item-dropdown sair">
-                        <form action="{% url 'fpinterest:logout' %}" method="post">
-                            {% csrf_token %}
-                            <button type="submit">Sair</button>
-                        </form>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    {% else %}
-        <ul class="botoes-nav flex">
-            <li>
-                <a class="botao" href="{% url 'fpinterest:login' %}">Entrar</a>
-            </li>
-
-            <li>
-                <a class="botao botao-criarconta" href="{% url 'fpinterest:criarconta' %}">Criar Conta</a>
-            </li>
-        </ul>
-    {% endif %}
+                        </li>
+                        <a class="item-dropdown" href="{% url 'fpinterest:criarpost' %}" >
+                            <li>Criar Post</li>
+                        </a>
+                        <li class="item-dropdown sair">
+                            <form action="{% url 'fpinterest:logout' %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit">Sair</button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        {% else %}
+            <ul class="botoes-nav flex">
+                <li>
+                    <a class="botao" href="{% url 'fpinterest:login' %}">Entrar</a>
+                </li>
+                <li>
+                    <a class="botao botao-criarconta" href="{% url 'fpinterest:criarconta' %}">Criar Conta</a>
+                </li>
+            </ul>
+        {% endif %}
+    </div>
 </nav>
 
 <script src="{% static 'js/dropdown-navbar.js' %}"></script>

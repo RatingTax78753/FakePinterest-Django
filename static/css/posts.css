@@ -44,6 +44,14 @@
     }
 }
 
+.nenhum-post {
+    justify-self: center;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    gap: 0.65rem;
+}
+
 
 
 
