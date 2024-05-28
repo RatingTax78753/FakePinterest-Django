@@ -19,6 +19,10 @@
             & h1 {
                 font-size: inherit;
             }
+
+            & h2 {
+                font-size: 4.78rem;
+            }
             
             & span {
                 color: #0076d3;
