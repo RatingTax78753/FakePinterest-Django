@@ -4,6 +4,14 @@
 
 FakePinterest é um site inspirado no Pinterest, mas de forma bem mais básica. O projeto permite a criação e exclusão de usuários e posts, oferecendo uma plataforma simples para compartilhar e gerenciar conteúdo visual.
 
+## Índice
+
+- [Instalação](#instalação)
+- [Funcionalidades](#funcionalidades)
+- [Contribuição](#contribuição)
+- [Licença](#licença)
+- [Contato](#contato)
+
 ## Funcionalidades
 
 - Criar, visualizar e excluir posts.
