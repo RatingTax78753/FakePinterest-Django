@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Editar Perfil - FakePinterest
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block main %}
+    <section class="secao flex">
+        <form class="flex col" method="post">
+                {% csrf_token %}
+
+            <div class="div-form-container flex col">
+                <h1>Edite os campos abaixo para editar seu perfil</h1>
+                
+                <div class="form-campos flex col">
+                    <div class="form-campo flex col">
+                        <div class="div-label-input flex col">
+                            <label for="username">Usuário:</label>
+                            <input type="text" name="username" id="username" placeholder="Nome de usuário" autocomplete="username" maxlength="150" required>
+                        </div>
+                
+                        <p class="legenda">Obrigatório. No máximo 150 caracteres. Letras, números e @/./+/-/_ apenas.</p>
+                    </div>
+                    
+                    <div class="form-campo">
+                        <div class="div-label-input flex col">
+                            <label for="email">E-mail:</label>
+                            <input type="email" name="email" id="email" placeholder="E-mail" autocomplete="on" autocompletetype=”email” value="{{ request.user.email }}" maxlength="254">
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="botao-legenda flex col">
+                    <button class="botao" type="submit">Editar Perfil</button>
+                    
+                    <p class="legenda">
+                        Quer mudar sua senha? <a href="{% url 'fpinterest:mudarsenha' %}">Clique aqui!</a>
+                    </p>
+                </div>
+            </div>
+        </form>
+    </section>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

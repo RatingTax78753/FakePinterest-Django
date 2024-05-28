@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Perfil de {{ perfil.usuario.username }} - FakePinterest
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/posts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/perfil.css' %}">
+    <link rel="stylesheet" href="{% static 'css/modal-confirmacao.css' %}">
+{% endblock %} 
+
+{% block main %}
+    <section class="secao topo flex">
+        {% if user.username == perfil.usuario.username %}
+            <a href="{% url 'fpinterest:editarfoto' perfil.usuario.id %}">
+                {% if perfil.foto_perfil %}
+                    <img class="foto-perfil" src="{{ perfil.foto_perfil.url }}" alt="Foto de perfil: {{ perfil.usuario.username }}">
+                {% else %}
+                    <img class="foto-perfil" src="{% static 'images/default.jpg' %}" alt="Foto de perfil default">
+                {% endif %}
+            </a>
+            
+        {% else %}
+            {% if perfil.foto_perfil %}
+                    <img src="{{ perfil.foto_perfil.url }}" alt="Foto de perfil: {{ perfil.usuario.username }}">
+                {% else %}
+                    <img src="{% static 'images/default.jpg' %}" alt="Foto de perfil default">
+                {% endif %}
+        {% endif %}
+
+        <div class="info-perfil-botao flex col">
+            <div class="info-perfil flex col">
+                <div class="titulo-options flex">
+                    <h1>{{ perfil.usuario.username }}</h1>
+
+                    {% if user.username == perfil.usuario.username %}
+                        <ul class="options">
+                            <li class="trigger-option flex" id="triggerOption">
+                                <img src="{% static 'images/options.svg' %}" alt="Options SVG">
+                            </li>
+            
+                            <li class="list-option flex" id="listOption">
+                                <ul class="flex col">
+                                    <a href="{% url 'fpinterest:editarperfil' perfil.usuario.id %}">
+                                        <li>Editar Perfil</li>
+                                    </a>
+
+                                    <a id="deleteLink" href="{% url 'fpinterest:deletarperfil' user.id %}">
+                                        <li>Excluir Perfil</li>
+                                    </a>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                    
+                    {% endif %}
+                </div>
+
+                <p>
+                    {% if perfil.usuario.posts.all|length != 1 %}
+                        {{ perfil.usuario.posts.all|length }} posts
+                    {% else %}
+                        {{ perfil.usuario.posts.all|length }} post
+                    {% endif %}
+                </p>
+            </div>
+
+            {% if user.username == perfil.usuario.username %}
+                <a class="botao" href="{% url 'fpinterest:criarpost' %}">Criar post</a>
+            {% endif %}
+        </div>
+    </section>
+
+    <section class="secao flex col">
+        <h2>
+            {% if perfil.usuario.posts.all|length == 0 %}
+                Nenhum post ainda
+            {% elif perfil.usuario.posts.all|length > 1 %}
+                Posts:
+            {% else %}
+                Post:
+            {% endif %}
+        </h2>
+
+        <div class="grid">
+            {% for post in perfil.usuario.posts.all|dictsortreversed:'data_criacao' %}
+                <a class="post flex" href="{% url 'fpinterest:detalhespost' post.pk %}">
+                    <img src="{{ post.imagem.url }}" alt="Post {{ post.id }} - {{ post.titulo }}">
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+
+    {% block modal %}
+        <div id="confirmationModal" class="modal flex">
+            <div class="modal-content flex col">
+                <div class="textos flex col">
+                    <h2>
+                        Você realmente deseja <span>EXCLUIR</span> seu perfil?
+                    </h2>
+                    <div class="ps flex col">
+                        <p>Essa ação é irreversível!</p>
+                        <p>Todos seus posts também serão excluidos!</p>
+                    </div>
+                </div>
+
+                <div class="botoes flex">
+                    <button id="confirmDelete" class="btn-excluir">Excluir</button>
+                    <button id="cancelDelete" class="btn-cancel">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+    <script src="{% static 'js/options-dropdown.js' %}"></script>
+    <script src="{% static 'js/modal-confirmacao.js' %}"></script>
+{% endblock %} 

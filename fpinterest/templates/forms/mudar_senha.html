@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Mudar Senha - FakePinterest
+{% endblock %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+{% endblock %}
+
+{% block main %}
+    <section class="secao flex">
+        <form class="flex col" method="post">
+            {% csrf_token %}
+            
+            <div class="div-form-container flex col">
+                <h1>Edite os campos abaixo para mudar sua senha</h1>
+                
+                <div class="form-campos flex col">
+                    <div class="form-campo flex col">
+                        <div class="div-label-input flex col">
+                            <label for="old_password">Senha antiga:</label>
+                            <input type="password" name="old_password" id="old_password" placeholder="Senha antiga" autocomplete="current-password" autofocus required>
+                        </div>
+                    </div>
+                
+                
+                    <div class="form-campo flex col">
+                        <div class="div-label-input flex col">
+                            <label for="new_password1" class="form-label requiredField">Nova senha:</label>
+                            <input type="password" name="new_password1" id="new_password1" placeholder="Nova senha" autocomplete="new-password" required>
+                        </div>
+                
+                        <ul class="legenda">
+                            <li>A senha não pode ser muito parecida com o resto das suas informações pessoais.</li>
+                            <li>Deve conter pelo menos 8 caracteres.</li>
+                            <li>Não pode ser uma senha comumente utilizada.</li>
+                            <li>Não pode ser inteiramente numérica.</li>
+                        </ul>
+                    </div>
+
+                    <div class="form-campo flex col">
+                        <div class="div-label-input flex col">
+                            <label for="new_password2" class="form-label requiredField">Confirmação da nova senha:</label>
+                            <input type="password" name="new_password2" id="new_password2" placeholder="Confirmação da senha" autocomplete="new-password" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="botao" type="submit">Mudar Senha</button>
+            </div>
+        </form>
+    </section>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

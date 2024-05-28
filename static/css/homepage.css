@@ -1,0 +1,68 @@
+.secao-home {
+    justify-content: center;
+    padding: 7.63rem 9.54rem;
+    height: 61rem;
+
+    &.primeira {
+        background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.40)), url("../images/home-fundo1.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
+        height: 53rem;
+
+        & .titulo-h1{
+            font-size: 5.73rem;
+            font-weight: 700;
+            align-items: center;
+            transform: translateY(-10%);
+
+            & h1 {
+                font-size: inherit;
+            }
+            
+            & span {
+                color: #0076d3;
+            }
+        }
+    }
+
+    &.resto {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
+        align-items: center;
+        justify-content: end;
+
+        & h2 {
+            font-size: 4.78rem;
+        }
+
+        & p {
+            font-size: 2.3rem;
+        }
+
+        & div {
+            height: 20rem;
+            width: 50rem;
+            gap: 2rem;
+            text-align: center;
+        }
+
+        &.segunda {
+            background-image: url("../images/home-fundo2.jpg");
+            color: #c31952;
+        }
+
+        &.terceira {
+            background-image: url("../images/home-fundo3.jpg");
+            color: #006b6c;
+            justify-content: start;
+        }
+
+        &.quarta {
+            background-image: url("../images/home-fundo4.jpg");
+            color: #c32f00;
+            
+        }
+    }
+}

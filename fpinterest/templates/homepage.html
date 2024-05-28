@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Homepage - FakePinterest
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+{% endblock %}
+
+{% block main %}
+    <section class="secao-home primeira flex">
+        <div class="titulo-h1 flex col">
+            <h1>Encontre sua próxima</h1> 
+            <span>ideia</span>
+        </div>
+    </section>
+
+    <section class="secao-home resto segunda flex">
+        <div class="flex col">
+            <h2>Procure!</h2>
+            <p>O que você quer experimentar agora? Procure algo de seu interesse, como "receitas práticas de frango para o jantar", e veja o que aparece.</p>
+        </div>
+    </section>
+
+    <section class="secao-home resto terceira flex">
+        <div class="flex col">
+            <h2>Salve coisas do seu interesse</h2>
+            <div>
+                <p>Colecione favoritos para acessá-los</p>
+                <p>posteriormente.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="secao-home resto quarta flex">
+        <div class="flex col">
+            <h2>Veja, faça, experimente, crie</h2>
+            <p>A melhor parte do Pinterest é descobrir coisas e ideias novas de pessoas do mundo todo.</p>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Editar Foto - FakePinterest
+{% endblock %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+{% endblock %}
+
+{% block main %}
+    <section class="secao flex">
+        <form class="flex col" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+    
+            <div class="div-form-container flex col">
+                <h1>Defina uma foto de Perfil</h1>
+
+                <div class="form-campos flex col">
+                    <div class="form-campo form-imagens flex col">
+                        <div class="div-label-input flex col">
+                            <input type="file" name="foto_perfil" id="foto_perfil" accept="image/*" onchange="previewImage(event)">
+                        </div>
+
+
+                        <div class="preview flex col">
+                            <h2>Preview:</h2>
+
+                            {% if perfil.foto_perfil %}
+                                <img class="perfil" id="imagem-preview-perfil" src="{{ perfil.foto_perfil.url }}" alt="Preview da Imagem">
+                            {% else %}
+                                <img class="perfil" id="imagem-preview-perfil" src="{% static 'images/default.jpg' %}" alt="Preview da Imagem Default" >
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <button class="botao" type="submit">Definir foto de perfil</button>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <script src="{% static 'js/preview-imagem.js' %}"></script>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

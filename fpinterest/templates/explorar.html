@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Explore tudo oque temos - FakePinterest
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/posts.css' %}">
+{% endblock %}
+
+{% block main %}
+    <section class="secao flex col">
+        <h1>Explore tudo o que temos:</h1>
+
+        <div class="grid">
+            {% for post in todos_posts %}
+                <a class="post flex" href="{% url 'fpinterest:detalhespost' post.pk %}">
+                    <img src="{{ post.imagem.url }}" alt="Post {{ post.id }} - {{ post.titulo }}">
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

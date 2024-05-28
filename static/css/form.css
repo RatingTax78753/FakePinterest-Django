@@ -1,0 +1,154 @@
+.legenda {
+    font-size: 1.33rem;
+    margin-top: 0.42rem;
+    font-weight: 600;
+
+    & a {
+        font-size: inherit;
+        color: inherit;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    & li {
+        font-size: inherit;
+    }
+}
+
+.botao-legenda {
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="file"]::file-selector-button {
+    background-color: #E6010A;
+    padding:  0.33rem 0.52rem;
+    color: #ffffff;
+    border-radius: 1rem;
+    font-weight: 700;
+    border: solid 0.2rem #E6010A;
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #991B1B;
+    border: solid 0.2rem #991B1B;
+}
+
+/* Formatação geral no form */
+.secao {
+    background-image: url("../images/home-fundo1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.4);
+    background-blend-mode: overlay;
+    height: 100vh;
+    padding: 2.5rem 9.54rem 2.5rem 9.54rem;
+    justify-content: center;
+    align-items: center;
+
+    & form {
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+
+        & .div-form-container {
+            background-color: #FFFFFF;
+            box-shadow: 0 0 0.4rem 0.2rem rgba(0, 0, 0, 0.3);
+            border-radius: 1.5rem;
+            padding: 2rem 2.5rem;
+            gap: 1.6rem;
+            justify-content: center;
+            align-items: center;
+            min-width: 90rem;
+
+            & .form-campos {
+                justify-content: center;
+                align-items: center;
+                gap: 1.28rem;
+        
+                & .form-campo {
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+            
+                    & .div-label-input {
+                        gap: 0.52rem;
+                        font-size: 1.6rem;
+                        line-height: 1.4;
+                        text-align: start;
+    
+                        & label {
+                            font-weight: 600;
+                        }
+        
+                        & input,
+                        & textarea  {
+                            font-size: inherit;
+                            line-height: inherit;
+                            padding: 0.52rem 0.65rem;
+                            border-radius: 0.5rem;
+                            resize: none;
+                        }
+
+                        & textarea {
+                            border: solid 0.2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* Form de editar foto de perfil */
+.form-imagens {
+    align-items: center;
+    
+    & .preview {
+        padding: 2rem;
+        gap: 2rem;
+        justify-content: center;
+        align-items: center;
+        
+        & img {
+            border-radius: 50%;
+            overflow: hidden;
+            object-fit: cover;
+            aspect-ratio: 1/1;
+            box-shadow: 0 0 0.4rem 0.2rem rgba(0, 0, 0, 0.3);
+
+            &.perfil {
+                width: 20rem;
+                height: 20rem;
+            }
+
+            &.mini {
+                width: 4.8rem;
+                height: 4.8rem;
+            }
+        }
+    }
+}
+
+/* Form de criar post */
+.form-campos-imagem {
+    align-items: start;
+    gap: 2rem;
+
+    & .campo-imagem {
+        justify-content: center;
+        align-items: center;
+        gap: 1.02rem;
+    
+        & img {
+            max-width: 60rem;
+            max-height: 40rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 0 0.4rem 0.2rem rgba(0, 0, 0, 0.3);
+        }
+    }
+}
