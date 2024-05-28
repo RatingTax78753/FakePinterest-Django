@@ -19,38 +19,38 @@ FakePinterest é um site inspirado no Pinterest, mas de forma bem mais básica. 
 - Navegação intuitiva com barra de navegação responsiva.
 
 ##Visão Geral:
-    ##1.Homepage:
-    - Mensagem de boas-vindas e introdução.
-    - Instruções e incentivo para explorar e salvar ideias.
-    - Promoção da descoberta e criatividade através do uso da plataforma.
+##1.Homepage:
+- Mensagem de boas-vindas e introdução.
+- Instruções e incentivo para explorar e salvar ideias.
+- Promoção da descoberta e criatividade através do uso da plataforma.
 
-    ##2.Navbar:
-    - Navegação entre homepage, exploração, perfil, criação de posts e logout.
-    - Dropdown para opções de perfil e logout.
-    - Links para login e criação de conta.
-    - Suporte a superusuários para acessar a área administrativa.
+##2.Navbar:
+- Navegação entre homepage, exploração, perfil, criação de posts e logout.
+- Dropdown para opções de perfil e logout.
+- Links para login e criação de conta.
+- Suporte a superusuários para acessar a área administrativa.
 
-    ##3.Página de Exploração:
-    - Lista de todos os posts disponíveis.
-    - Mensagem de aviso caso não haja posts.
+##3.Página de Exploração:
+- Lista de todos os posts disponíveis.
+- Mensagem de aviso caso não haja posts.
 
-    ##4.Página de Detalhes do Post:
-    - Exibição detalhada do post.
-    - Opções de edição e exclusão para o autor.
-    - Modal de confirmação de exclusão.
+##4.Página de Detalhes do Post:
+- Exibição detalhada do post.
+- Opções de edição e exclusão para o autor.
+- Modal de confirmação de exclusão.
 
-    ##5.Página de Perfil:
-    - Exibição da foto de perfil, nome de usuário e opções de edição/exclusão.
-    - Ao clicar na foto, você é redirecionado para editar a foto do perfil.
-    - Listagem de posts do usuário.
-    - Modal de confirmação para exclusão do perfil.
+##5.Página de Perfil:
+- Exibição da foto de perfil, nome de usuário e opções de edição/exclusão.
+- Ao clicar na foto, você é redirecionado para editar a foto do perfil.
+- Listagem de posts do usuário.
+- Modal de confirmação para exclusão do perfil.
 
-    ##6.Páginas de Edição:
-    - Editar nome de usuário e email
-    - Alterar senha
-    - Alterar foto de perfil
-    - Fazer login
-    - Criar novo post
+##6.Páginas de Edição:
+- Editar nome de usuário e email.
+- Alterar senha.
+- Alterar foto de perfil.
+- Fazer login.
+- Criar novo post.
 
 
 ## Requisitos:
