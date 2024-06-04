@@ -74,22 +74,24 @@
     </section>
 
     <section class="secao flex col">
-        <h2>
-            {% if perfil.usuario.posts.all|length == 0 %}
-                Nenhum post ainda
-            {% elif perfil.usuario.posts.all|length > 1 %}
-                Posts:
-            {% else %}
-                Post:
-            {% endif %}
-        </h2>
+        <div class="container titulo-posts flex col">
+            <h2>
+                {% if perfil.usuario.posts.all|length == 0 %}
+                    Nenhum post ainda
+                {% elif perfil.usuario.posts.all|length > 1 %}
+                    Posts:
+                {% else %}
+                    Post:
+                {% endif %}
+            </h2>
 
-        <div class="grid">
-            {% for post in perfil.usuario.posts.all|dictsortreversed:'data_criacao' %}
-                <a class="post flex" href="{% url 'fpinterest:detalhespost' post.pk %}">
-                    <img src="{{ post.imagem.url }}" alt="Post {{ post.id }} - {{ post.titulo }}">
-                </a>
-            {% endfor %}
+            <div class="grid">
+                {% for post in perfil.usuario.posts.all|dictsortreversed:'data_criacao' %}
+                    <a class="post flex" href="{% url 'fpinterest:detalhespost' post.pk %}">
+                        <img src="{{ post.imagem.url }}" alt="Post {{ post.id }} - {{ post.titulo }}">
+                    </a>
+                {% endfor %}
+            </div>
         </div>
     </section>
 

@@ -11,21 +11,22 @@
 
 {% block main %}
     <section class="secao flex col">
-        {% if todos_posts|length > 0 %}
-            <h1>Explore tudo o que temos:</h1>
-
-            <div class="grid">
-                {% for post in todos_posts %}
-                    <a class="post flex" href="{% url 'fpinterest:detalhespost' post.pk %}">
-                        <img src="{{ post.imagem.url }}" alt="Post {{ post.id }} - {{ post.titulo }}">
-                    </a>
-                {% endfor %}
-            </div>
-        {% else %}
-            <div class="nenhum-post flex col">
-                <h1>Infelizmente ainda não temos nenhum post...</h1>
-                <h2>Que tal ser o primero?</h2>
-            </div>
-        {% endif %}
+        <div class="container titulo-posts flex col">
+            {% if todos_posts|length > 0 %}
+                <h1>Explore tudo o que temos:</h1>
+                <div class="grid">
+                    {% for post in todos_posts %}
+                        <a class="post flex" href="{% url 'fpinterest:detalhespost' post.pk %}">
+                            <img src="{{ post.imagem.url }}" alt="Post {{ post.id }} - {{ post.titulo }}">
+                        </a>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="nenhum-post flex col">
+                    <h1>Infelizmente ainda não temos nenhum post...</h1>
+                    <h2>Que tal ser o primero?</h2>
+                </div>
+            {% endif %}
+        </div>
     </section>
 {% endblock %}

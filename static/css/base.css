@@ -53,6 +53,10 @@ a {
     gap: 2rem;
 }
 
+.container {
+    margin: 0 auto;
+}
+
 .botao {
     background-color: #E6010A;
     padding:  0.42rem 0.82rem;

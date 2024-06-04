@@ -17,55 +17,53 @@
 
 {% block main %}
     <section class="secao">
-        <div class="post-info flex">
-            <a class="link" target=”_blank” href="http://127.0.0.1:8000/imagens/{{ post.imagem }}">
-                <img class="post" src="{{ post.imagem.url }}" alt="Post {{ post.id }} - {{ post.titulo }}">
-            </a>
+        <div class="container">
+            <div class="post-info flex">
+                <a class="link" target=”_blank” href="http://127.0.0.1:8000/imagens/{{ post.imagem }}">
+                    <img class="post" src="{{ post.imagem.url }}" alt="Post {{ post.id }} - {{ post.titulo }}">
+                </a>
             
-            <div class="info flex col">
-                <div class="titulo-desc-data flex col">
-                    <div class="data-opcao flex">
-                        <p class="data">{{ post.data_criacao }}</p>
-                        
-                        {% if post.usuario == user %}
-                            <ul class="options">
-                                <li class="trigger-option flex" id="triggerOption">
-                                    <img src="{% static 'images/options.svg' %}" alt="Options SVG">
-                                </li>
-                
-                                <li class="list-option flex" id="listOption">
-                                    <a id="deleteLink" href="{% url 'fpinterest:deletarpost' post.id %}">Excluir</a>
-                                </li>
-                            </ul>
-                        {% endif %}
-                    </div>
-
-                    <div class="titulo-desc flex col">
-                        <h1>{{ post.titulo }}</h1>
-                        <p>{{ post.descricao }}</p>
-                    </div>
-                </div>
-
-                <div class="usuario">
-                    <a class="flex" href="{% url 'fpinterest:perfil' post.usuario.id %}">
-                        {% if post.usuario.perfil.foto_perfil %}
-                            <img src="{{ post.usuario.perfil.foto_perfil.url }}" alt="Foto de perfil: {{ post.usuario.username }}">
-                        {% else %}
-                            <img src="{% static 'images/default.jpg' %}" alt="Foto de perfil default">
-                        {% endif %}
-
-                        <div class="info-usuario flex col">
-                            <p class="nome-usuario">{{ post.usuario.username }}</p>
-
-                            <p class="qnt-post">
-                                {% if post.usuario.posts.all|length > 1 %}
-                                    {{ post.usuario.posts.all|length }} posts
-                                {% else %}
-                                    {{ post.usuario.posts.all|length }} post
+                <div class="info flex col">
+                    <div class="flex col conteudo">
+                        <div class="titulo-desc-data flex col">
+                            <div class="data-opcao flex">
+                                <p class="data">{{ post.data_criacao }}</p>
+                                {% if post.usuario == user %}
+                                    <ul class="options">
+                                        <li class="trigger-option flex" id="triggerOption">
+                                            <img src="{% static 'images/options.svg' %}" alt="Options SVG">
+                                        </li>
+                                        <li class="list-option flex" id="listOption">
+                                            <a id="deleteLink" href="{% url 'fpinterest:deletarpost' post.id %}">Excluir</a>
+                                        </li>
+                                    </ul>
                                 {% endif %}
-                            </p>
+                            </div>
+                            <div class="titulo-desc flex col">
+                                <h1>{{ post.titulo }}</h1>
+                                <p>{{ post.descricao }}</p>
+                            </div>
                         </div>
-                    </a>
+                        <div class="usuario">
+                            <a class="flex" href="{% url 'fpinterest:perfil' post.usuario.id %}">
+                                {% if post.usuario.perfil.foto_perfil %}
+                                    <img src="{{ post.usuario.perfil.foto_perfil.url }}" alt="Foto de perfil: {{ post.usuario.username }}">
+                                {% else %}
+                                    <img src="{% static 'images/default.jpg' %}" alt="Foto de perfil default">
+                                {% endif %}
+                                <div class="info-usuario flex col">
+                                    <p class="nome-usuario">{{ post.usuario.username }}</p>
+                                    <p class="qnt-post">
+                                        {% if post.usuario.posts.all|length > 1 %}
+                                            {{ post.usuario.posts.all|length }} posts
+                                        {% else %}
+                                            {{ post.usuario.posts.all|length }} post
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
