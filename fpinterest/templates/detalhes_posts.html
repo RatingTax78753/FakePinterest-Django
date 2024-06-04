@@ -19,7 +19,7 @@
     <section class="secao">
         <div class="post-info flex">
             <a class="link" target=”_blank” href="http://127.0.0.1:8000/imagens/{{ post.imagem }}">
-                <img class="post" src="{{ post.imagem.url }}" alt="{{ post.titulo }}">
+                <img class="post" src="{{ post.imagem.url }}" alt="Post {{ post.id }} - {{ post.titulo }}">
             </a>
             
             <div class="info flex col">
