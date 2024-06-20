@@ -24,7 +24,7 @@
                     <div class="form-campo flex col">
                         <div class="div-label-input flex col">
                             <label for="username">Usuário:</label>
-                            <input type="text" name="username" id="username" placeholder="Nome de usuário" autocomplete="username" maxlength="150" required>
+                            <input type="text" name="username" id="username" placeholder="Nome de usuário" autocomplete="username" value="{{ request.user.username }}" maxlength="150" required>
                         </div>
                 
                         <p class="legenda">Obrigatório. No máximo 150 caracteres. Letras, números e @/./+/-/_ apenas.</p>
